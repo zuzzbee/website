@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--
+  YOU DON'T NEED TO EDIT THIS FILE.
+  All the words, links and settings live in config.js.
+  This file is just the skeleton that config.js fills in.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zuzz's corner of the internet</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="window out">
+    <div class="titlebar">
+      <span aria-hidden="true">🌐</span>
+      <span class="name" id="topBarTitle"></span>
+      <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+    </div>
+    <div class="body">
+      <div class="banner">
+        <h1 id="headline"></h1>
+        <p id="tagline"></p>
+      </div>
+      <div class="ticker in" id="tickerBox" aria-hidden="true">
+        <span id="ticker"></span>
+      </div>
+      <noscript><p class="no-js">This page needs JavaScript turned on to show its content.</p></noscript>
+    </div>
+  </header>
+
+  <div class="cols">
+
+    <!-- LEFT: EMBEDS -->
+    <main class="stack">
+
+      <section class="window out" id="spotifyWindow" aria-labelledby="spotifyTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">🎵</span>
+          <span class="name" id="spotifyTitle"></span>
+          <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+        </div>
+        <div class="body">
+          <p class="embed-note" id="spotifyIntro"></p>
+          <div class="embed-frame in" id="spotifyFrame"></div>
+          <details class="help-note">
+            <summary>how do i change this?</summary>
+            <p>Open <code>config.js</code> and paste a Spotify share link next to <code>link:</code> in the <code>spotify</code> section.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="window out" id="discordWindow" aria-labelledby="discordTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">💬</span>
+          <span class="name" id="discordTitle"></span>
+          <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+        </div>
+        <div class="body">
+          <p class="embed-note" id="discordIntro"></p>
+          <div class="embed-frame in" id="discordFrame"></div>
+          <details class="help-note">
+            <summary>why is this empty?</summary>
+            <p>Open <code>config.js</code> and put your server ID next to <code>serverId:</code> in the <code>discord</code> section. Also make sure <b>Server Settings → Widget → Enable Server Widget</b> is switched on in Discord.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="window out about" id="aboutWindow" aria-labelledby="aboutTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">📄</span>
+          <span class="name" id="aboutTitle"></span>
+          <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+        </div>
+        <div class="body">
+          <div class="in" style="padding:10px">
+            <h2 id="aboutHeading"></h2>
+            <div id="aboutText"></div>
+            <p id="aboutNew"><span class="blink">NEW!</span> <span id="aboutNewText"></span></p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- RIGHT: NAVIGATOR -->
+    <aside class="side stack">
+
+      <nav class="window out" aria-labelledby="menuTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">📁</span>
+          <span class="name" id="menuTitle"></span>
+          <span class="btns" aria-hidden="true"><span>x</span></span>
+        </div>
+        <div class="body">
+          <ul class="nav" id="menu"></ul>
+        </div>
+      </nav>
+
+      <section class="window out" aria-labelledby="infoTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">📊</span>
+          <span class="name" id="infoTitle"></span>
+          <span class="btns" aria-hidden="true"><span>x</span></span>
+        </div>
+        <div class="body" style="text-align:center">
+          <div>You are visitor</div>
+          <div class="counter" id="counter"></div>
+          <div class="badges" id="badges"></div>
+        </div>
+      </section>
+
+    </aside>
+  </div>
+
+  <footer class="page-foot">
+    &copy; <span id="footYear"></span> <span id="footName"></span>. made with plain HTML and hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+  </footer>
+</div>
+
+<!-- TASKBAR -->
+<div class="taskbar" aria-hidden="true">
+  <button class="start" type="button" tabindex="-1">🪟 Start</button>
+  <div class="task in" id="taskbarText"></div>
+  <div class="tray in" id="clock"></div>
+</div>
+
+<script src="config.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

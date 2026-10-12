@@ -1,0 +1,242 @@
+/* =====================================================================
+   LOOK AND FEEL
+   =====================================================================
+   You don't need to touch anything below the COLORS section.
+   To change a color, replace the code after the colon, like #008080.
+   Not sure what code to use? Search "color picker" on Google, pick a
+   color, and copy the code that starts with #.
+   ===================================================================== */
+
+:root {
+  /* ----------------------------- COLORS ----------------------------- */
+
+  --desktop-background: #008080;   /* the teal "desktop" behind everything */
+  --window-grey:        #c0c0c0;   /* the grey of windows and buttons */
+  --title-bar-left:     #000080;   /* title bars fade from this color... */
+  --title-bar-right:    #1084d0;   /* ...to this one */
+  --link-color:         #0000ee;   /* links you haven't clicked */
+  --visited-link-color: #551a8b;   /* links you have clicked */
+  --note-yellow:        #ffffe1;   /* the yellow help-note boxes */
+  --blink-red:          #d00000;   /* the blinking NEW! text */
+
+  /* Banner rainbow, left to right (the heading's colors) */
+  --rainbow: #ff3b3b, #ffb000, #ffee00, #3ddc4a, #2ec5ff, #b46bff, #ff3b3b;
+
+  /* ----------------------------- FONTS ------------------------------ */
+
+  --ui: Tahoma, "MS Sans Serif", Verdana, Geneva, sans-serif;
+  --serif: "Times New Roman", Times, serif;
+
+  /* ---- Below here: the bevel shading. Safe to leave alone. ---- */
+  --hi: #ffffff;
+  --mid: #808080;
+  --dark: #404040;
+}
+
+/* =====================================================================
+   EVERYTHING BELOW IS THE DESIGN ITSELF. NO NEED TO EDIT.
+   ===================================================================== */
+
+* { box-sizing: border-box; }
+
+html { background: var(--desktop-background); }
+
+body {
+  margin: 0;
+  padding: 16px 16px 56px;
+  font-family: var(--ui);
+  font-size: 14px;
+  line-height: 1.45;
+  color: #000;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 2px, transparent 2px 6px),
+    var(--desktop-background);
+  min-height: 100vh;
+}
+
+a { color: var(--link-color); }
+a:visited { color: var(--visited-link-color); }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: 2px;
+  background: #ffff99;
+}
+
+[hidden] { display: none !important; }
+
+/* ---------- bevels ---------- */
+.out {
+  background: var(--window-grey);
+  border: 2px solid;
+  border-color: var(--hi) var(--dark) var(--dark) var(--hi);
+  box-shadow: inset -1px -1px var(--mid), inset 1px 1px #dfdfdf;
+}
+.in {
+  background: #fff;
+  border: 2px solid;
+  border-color: var(--mid) var(--hi) var(--hi) var(--mid);
+  box-shadow: inset 1px 1px var(--dark), inset -1px -1px #dfdfdf;
+}
+
+/* ---------- window chrome ---------- */
+.window { padding: 3px; }
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 4px;
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--title-bar-left), var(--title-bar-right));
+}
+.titlebar .name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.titlebar .btns { display: flex; gap: 2px; }
+.titlebar .btns span {
+  width: 18px; height: 16px;
+  display: grid; place-items: center;
+  font-size: 11px; line-height: 1; color: #000;
+  background: var(--window-grey);
+  border: 2px solid; border-color: var(--hi) var(--dark) var(--dark) var(--hi);
+}
+.body { padding: 10px; }
+
+/* ---------- layout ---------- */
+.page { max-width: 1040px; margin: 0 auto; display: grid; gap: 14px; }
+.cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 14px;
+  align-items: start;
+}
+.stack { display: grid; gap: 14px; }
+
+/* ---------- header ---------- */
+.banner {
+  text-align: center;
+  padding: 18px 10px 14px;
+  background: #000080;
+  border: 2px solid;
+  border-color: var(--mid) var(--hi) var(--hi) var(--mid);
+  background-image: radial-gradient(circle at 20% 30%, #ffffff 1px, transparent 1.5px),
+                    radial-gradient(circle at 70% 60%, #ffffff 1px, transparent 1.5px),
+                    radial-gradient(circle at 45% 80%, #9bd 1px, transparent 1.5px);
+  background-size: 90px 70px, 130px 90px, 60px 50px;
+}
+.banner h1 {
+  margin: 0;
+  font-family: Impact, "Arial Black", var(--ui);
+  font-weight: 400;
+  font-size: clamp(26px, 5.4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, var(--rainbow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0,0,0,.6);
+  filter: drop-shadow(3px 3px 0 #000);
+}
+.banner p { margin: 8px 0 0; color: #ffff66; font-family: var(--serif); font-style: italic; font-size: 17px; }
+
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 3px 0;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+}
+.ticker span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 24s linear infinite;
+}
+@keyframes scroll { to { transform: translateX(-100%); } }
+
+/* ---------- left column ---------- */
+.embed-note { margin: 0 0 8px; }
+.embed-frame { padding: 2px; }
+.embed-frame iframe { display: block; width: 100%; border: 0; background: #fff; }
+.embed-frame .oops { margin: 0; padding: 10px; }
+
+details { margin-top: 8px; padding: 6px 8px; background: var(--note-yellow); border: 1px solid #000; font-size: 12px; }
+summary { cursor: pointer; font-weight: 700; }
+details code { background: #fff; padding: 0 3px; border: 1px solid var(--mid); word-break: break-all; }
+
+.about p { margin: 0 0 8px; }
+.about p:last-child { margin: 0; }
+.about h2, .side h2 { margin: 0 0 6px; font-family: var(--serif); font-size: 20px; }
+
+/* ---------- right column ---------- */
+.nav { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  background: var(--window-grey);
+  border: 2px solid; border-color: var(--hi) var(--dark) var(--dark) var(--hi);
+  box-shadow: inset -1px -1px var(--mid), inset 1px 1px #dfdfdf;
+}
+.nav a:visited { color: #000; }
+.nav a:hover { background: #d4d4d4; }
+.nav a:active, .nav a[aria-current="page"] {
+  border-color: var(--dark) var(--hi) var(--hi) var(--dark);
+  box-shadow: inset 1px 1px var(--mid);
+  background: #b4b4b4;
+}
+.nav .ico { font-size: 18px; width: 22px; text-align: center; }
+.nav small { display: block; font-weight: 400; color: var(--dark); font-size: 11px; }
+
+.counter {
+  display: flex; justify-content: center; gap: 2px; margin: 6px 0 0;
+  font-family: "Courier New", monospace; font-weight: 700; font-size: 20px;
+}
+.counter span { background: #000; color: #3dff3d; padding: 0 5px; border: 1px solid var(--mid); }
+
+.badges { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 8px; }
+.badge {
+  font-size: 10px; font-weight: 700; padding: 2px 6px; text-align: center; line-height: 1.2;
+  background: #000; color: #fff; border: 1px solid #fff; outline: 1px solid #000;
+}
+.badge.y { background: #ffee00; color: #000; }
+
+.blink { animation: blink 1.1s steps(2, start) infinite; color: var(--blink-red); font-weight: 700; }
+@keyframes blink { to { visibility: hidden; } }
+
+footer.page-foot { text-align: center; color: #fff; font-size: 12px; text-shadow: 1px 1px #000; }
+footer.page-foot a, footer.page-foot a:visited { color: #ffff99; }
+
+.no-js { padding: 10px; background: var(--note-yellow); border: 1px solid #000; }
+
+/* ---------- taskbar ---------- */
+.taskbar {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: center; gap: 6px;
+  padding: 4px 6px;
+  background: var(--window-grey);
+  border-top: 2px solid var(--hi);
+  box-shadow: 0 -1px var(--mid);
+  z-index: 10;
+}
+.start {
+  font: inherit; font-weight: 700; padding: 3px 12px; cursor: pointer;
+  border: 2px solid; border-color: var(--hi) var(--dark) var(--dark) var(--hi);
+  background: var(--window-grey);
+}
+.start:active { border-color: var(--dark) var(--hi) var(--hi) var(--dark); }
+.task { flex: 1; padding: 3px 10px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tray { padding: 3px 10px; font-size: 12px; }
+
+/* ---------- small screens ---------- */
+@media (max-width: 760px) {
+  .cols { grid-template-columns: 1fr; }
+  .side { order: -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker span { animation: none; padding-left: 0; white-space: normal; }
+  .blink { animation: none; }
+}
