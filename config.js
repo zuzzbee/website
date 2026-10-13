@@ -52,7 +52,7 @@ window.SITE = {
 
     // HOW TO GET YOUR LINK: In Spotify, right-click a playlist, album,
     // song or artist > Share > Copy link. Paste it between the quotes.
-    link: "https://open.spotify.com/playlist/7vMRlGd6w1yoG7VbJA2GMp?si=94505c3efc004484",
+    link: "https://open.spotify.com/playlist/1TSwxAPD7gl99tsQcIzO2N?si=2df230b634b74999",
 
     // Height of the player in pixels. Use 352 for playlists/albums,
     // and 152 for a single song.
@@ -71,7 +71,7 @@ window.SITE = {
     //  1. In Discord, go to Server Settings > Widget
     //  2. Turn ON "Enable Server Widget"
     //  3. Copy the Server ID shown on that page and paste it below
-    serverId: "YOUR_SERVER_ID",
+    serverId: "1247345874502156380",
 
     // Height of the box in pixels
     height: 400
@@ -109,7 +109,7 @@ window.SITE = {
   menu: [
     { icon: "🏠", name: "Home",      note: "you are here",          page: "index.html" },
     { icon: "🙋", name: "About Me",  note: "who is zuzz?",          page: "about.html" },
-    { icon: "💬", name: "Chat",      note: "talk live, right now",  page: "chat.html" },
+    { icon: "💬", name: "Chatroom",  note: "talk live, right now",  page: "chat.html" },
     { icon: "🖼️", name: "Gallery",   note: "pictures",              page: "gallery.html" },
     { icon: "🔗", name: "Links",     note: "cool sites i like",     page: "links.html" },
     { icon: "📖", name: "Guestbook", note: "say hi",                page: "guestbook.html" }
