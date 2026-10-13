@@ -122,7 +122,7 @@ window.SITE = {
 
   // The number on the visitor counter. This is just a number you type
   // in yourself. It does not count real visitors.
-  visitorCount: 69420,
+  visitorCount: 42,
 
   // The little badges. Each [ ] is one badge, and each "quoted" piece
   // inside is one line of text on it. Set yellow to true for a yellow badge.
