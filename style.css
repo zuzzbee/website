@@ -39,7 +39,12 @@
 
 * { box-sizing: border-box; }
 
-html { background: var(--desktop-background); }
+html {
+  background: var(--desktop-background);
+  -webkit-text-size-adjust: 100%;   /* stops phones resizing text on their own */
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
 
 body {
   margin: 0;
@@ -52,7 +57,12 @@ body {
     repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 2px, transparent 2px 6px),
     var(--desktop-background);
   min-height: 100vh;
+  min-height: 100dvh;   /* iPhones: counts the address bar correctly */
+  overflow-wrap: anywhere;   /* long words wrap instead of widening the page */
 }
+
+/* Stops the slow double-tap zoom on buttons and links */
+a, button, summary { touch-action: manipulation; }
 
 a { color: var(--link-color); }
 a:visited { color: var(--visited-link-color); }
@@ -89,7 +99,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   font-weight: 700;
   background: linear-gradient(90deg, var(--title-bar-left), var(--title-bar-right));
 }
-.titlebar .name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.titlebar .name { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .titlebar .btns { display: flex; gap: 2px; }
 .titlebar .btns span {
   width: 18px; height: 16px;
@@ -101,14 +111,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .body { padding: 10px; }
 
 /* ---------- layout ---------- */
-.page { max-width: 1040px; margin: 0 auto; display: grid; gap: 14px; }
+.page { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
 .cols {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 260px;
   gap: 14px;
   align-items: start;
 }
-.stack { display: grid; gap: 14px; }
+.stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.window, .body { min-width: 0; }
 
 /* ---------- header ---------- */
 .banner {
@@ -129,6 +140,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   font-size: clamp(26px, 5.4vw, 52px);
   line-height: 1.1;
   letter-spacing: 1px;
+  overflow-wrap: anywhere;
   background: linear-gradient(90deg, var(--rainbow));
   -webkit-background-clip: text;
   background-clip: text;
@@ -155,7 +167,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 /* ---------- left column ---------- */
 .embed-note { margin: 0 0 8px; }
 .embed-frame { padding: 2px; }
-.embed-frame iframe { display: block; width: 100%; border: 0; background: #fff; }
+.embed-frame iframe { display: block; width: 100%; max-width: 100%; border: 0; background: #fff; }
 .embed-frame .oops { margin: 0; padding: 10px; }
 
 details { margin-top: 8px; padding: 6px 8px; background: var(--note-yellow); border: 1px solid #000; font-size: 12px; }
@@ -227,12 +239,12 @@ footer.page-foot a, footer.page-foot a:visited { color: #ffff99; }
   background: var(--window-grey);
 }
 .start:active { border-color: var(--dark) var(--hi) var(--hi) var(--dark); }
-.task { flex: 1; padding: 3px 10px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.task { flex: 1; min-width: 0; padding: 3px 10px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .tray { padding: 3px 10px; font-size: 12px; }
 
 /* ---------- small screens ---------- */
 @media (max-width: 760px) {
-  .cols { grid-template-columns: 1fr; }
+  .cols { grid-template-columns: minmax(0, 1fr); }
   .side { order: -1; }
 }
 
