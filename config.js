@@ -68,7 +68,7 @@ window.SITE = {
     //  1. In Discord, go to Server Settings > Widget
     //  2. Turn ON "Enable Server Widget"
     //  3. Copy the Server ID shown on that page and paste it below
-    serverId: "YOUR_SERVER_ID",
+    serverId: "1247345874502156380",
 
     // Height of the box in pixels
     height: 400
