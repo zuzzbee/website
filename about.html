@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+  YOU DON'T NEED TO EDIT THIS FILE.
+  To change this page: log in on login.html, come back here, and click
+  "Edit this page".
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Me - zuzz's corner of the internet</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="guestbook.css">
+<link rel="stylesheet" href="pages.css">
+<link rel="stylesheet" href="about.css">
+</head>
+<body data-title="About Me">
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="window out">
+    <div class="titlebar">
+      <span aria-hidden="true">🌐</span>
+      <span class="name" id="topBarTitle"></span>
+      <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+    </div>
+    <div class="body">
+      <div class="banner">
+        <h1 id="headline"></h1>
+        <p id="tagline"></p>
+      </div>
+      <div class="ticker in" id="tickerBox" aria-hidden="true">
+        <span id="ticker"></span>
+      </div>
+      <noscript><p class="no-js">This page needs JavaScript turned on to show its content.</p></noscript>
+    </div>
+  </header>
+
+  <div class="cols">
+
+    <!-- LEFT: THE ABOUT PAGE -->
+    <main class="stack">
+
+      <!-- Only appears when you're logged in -->
+      <div class="admin-bar about-toolbar" id="aboutToolbar" hidden>
+        <span id="aboutWho"></span>
+        <span class="about-actions">
+          <button type="button" class="btn" id="btnEdit">✏️ Edit this page</button>
+          <span id="editActions" hidden>
+            <button type="button" class="btn" id="btnSave">💾 Save</button>
+            <button type="button" class="btn" id="btnDiscard">↩ Discard changes</button>
+            <button type="button" class="btn" id="btnDone">✔ Done</button>
+            <button type="button" class="mini-btn" id="btnReset">start over</button>
+          </span>
+        </span>
+        <span class="about-state" id="aboutState" role="status" aria-live="polite"></span>
+      </div>
+
+      <!-- The toolbox: only in edit mode -->
+      <section class="window out" id="aboutPalette" aria-labelledby="palTitle" hidden>
+        <div class="titlebar">
+          <span aria-hidden="true">🧰</span>
+          <span class="name" id="palTitle">toolbox.exe - drag a block onto the page</span>
+          <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+        </div>
+        <div class="body">
+          <p class="embed-note">drag a block down onto your page, or tap it to add it at the bottom. drag the ⠿ handle on any block to move it, or use the ▲ ▼ buttons.</p>
+          <div class="palette" id="paletteList"></div>
+        </div>
+      </section>
+
+      <div class="ab-canvas" id="aboutBlocks" aria-live="polite">
+        <p class="ab-loading">loading...</p>
+      </div>
+
+    </main>
+
+    <!-- RIGHT: NAVIGATOR -->
+    <aside class="side stack">
+
+      <nav class="window out" aria-labelledby="menuTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">📁</span>
+          <span class="name" id="menuTitle"></span>
+          <span class="btns" aria-hidden="true"><span>x</span></span>
+        </div>
+        <div class="body">
+          <ul class="nav" id="menu"></ul>
+        </div>
+      </nav>
+
+      <section class="window out" aria-labelledby="infoTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">📊</span>
+          <span class="name" id="infoTitle"></span>
+          <span class="btns" aria-hidden="true"><span>x</span></span>
+        </div>
+        <div class="body" style="text-align:center">
+          <div>You are visitor</div>
+          <div class="counter" id="counter"></div>
+          <div class="badges" id="badges"></div>
+        </div>
+      </section>
+
+    </aside>
+  </div>
+
+  <footer class="page-foot">
+    &copy; <span id="footYear"></span> <span id="footName"></span>. made with plain HTML and hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+  </footer>
+</div>
+
+<!-- TASKBAR -->
+<div class="taskbar" aria-hidden="true">
+  <button class="start" type="button" tabindex="-1">🪟 Start</button>
+  <div class="task in" id="taskbarText"></div>
+  <div class="tray in" id="clock"></div>
+</div>
+
+<script src="config.js"></script>
+<script src="site.js"></script>
+<script src="guestbook-config.js"></script>
+<script src="fb.js"></script>
+<script src="about.js"></script>
+</body>
+</html>

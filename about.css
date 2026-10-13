@@ -1,0 +1,183 @@
+/* =====================================================================
+   ABOUT ME STYLES  -  no need to edit.
+   Colors come from the settings at the top of style.css.
+   ===================================================================== */
+
+.ab-canvas { display: block; }
+.ab { margin-bottom: 14px; }
+.ab-loading, .ab-empty { margin: 0; padding: 12px; color: #fff; text-shadow: 1px 1px #000; }
+.ab-empty-note { margin: 0; color: var(--mid); font-style: italic; }
+
+/* ------------------------- toolbar (admin) ------------------------ */
+
+.about-toolbar { gap: 8px 12px; }
+.about-toolbar.is-editing {
+  position: sticky;
+  top: 8px;
+  z-index: 6;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, .35);
+}
+.about-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.about-actions > span { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.about-actions .btn { padding: 3px 12px; }
+.about-actions .btn:disabled { opacity: .7; }
+.about-state { flex-basis: 100%; font-weight: 700; }
+.about-state.dirty { color: var(--blink-red); }
+
+/* ----------------------------- toolbox ---------------------------- */
+
+.palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 6px; }
+.pal-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  text-align: left;
+  cursor: grab;
+  touch-action: none;                 /* lets touch screens drag instead of scroll */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.pal-item .pal-ico { font-size: 18px; }
+
+/* ------------------------- edit bar on blocks --------------------- */
+
+.ab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+  padding: 3px 6px;
+  font-size: 12px;
+  background: var(--note-yellow);
+  border: 1px dashed #000;
+}
+.ab-bar .ab-kind { flex: 1 1 auto; min-width: 0; font-weight: 700; }
+.ab-bar .mini-btn { margin-left: 0; padding: 1px 8px; font-size: 12px; }
+.ab-bar .mini-btn:disabled { color: var(--mid); cursor: not-allowed; }
+.ab-handle {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.ab.is-dragging { opacity: .35; }
+body.is-dragging, body.is-dragging * { cursor: grabbing !important; user-select: none; -webkit-user-select: none; }
+
+/* the red line that shows where a block will land (takes up no space) */
+.drop-line { height: 0; position: relative; }
+.drop-line::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: -9px;
+  height: 4px;
+  background: var(--blink-red);
+  box-shadow: 0 0 0 1px #fff;
+}
+
+.drag-ghost {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  padding: 4px 10px;
+  font-weight: 700;
+  background: var(--window-grey);
+  border: 2px solid;
+  border-color: var(--hi) var(--dark) var(--dark) var(--hi);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, .4);
+  opacity: .92;
+}
+
+/* ----------------------------- editor ----------------------------- */
+
+.ab-editor { display: grid; gap: 12px; }
+.ab-field label.ab-label { display: block; margin-bottom: 3px; font-weight: 700; }
+.ab-field .hint { margin-top: 2px; font-size: 11px; color: var(--dark); }
+.ab-rowlist { display: grid; gap: 6px; margin-bottom: 6px; }
+.ab-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.gb-form .ab-row input[type="text"] { width: auto; flex: 1 1 110px; min-width: 0; }
+.ab-check { display: inline-flex; align-items: center; gap: 4px; font-weight: 400; white-space: nowrap; }
+.ab-check input { margin: 0; }
+
+.ab-photo-field { display: grid; gap: 6px; justify-items: start; }
+.ab-photo-field .ab-thumb { width: 110px; }
+.ab-photo-field .row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; width: 100%; }
+.ab-photo-field input[type="file"] { max-width: 100%; font-size: 13px; }
+.gb-form .ab-photo-field input[type="text"] { flex: 1 1 200px; min-width: 0; }
+.ab-photo-msg { margin: 0; font-size: 12px; color: var(--dark); }
+.ab-editor-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ------------------------------ blocks ---------------------------- */
+
+.ab-photo { padding: 3px; background: #fff; }
+.ab-photo img { display: block; width: 100%; height: auto; }
+.ab-ph {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  font-size: 44px;
+  color: var(--mid);
+  background: #f2f2f2;
+}
+
+/* profile card */
+.profile { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 14px; }
+.profile .ab-photo { flex: 0 0 150px; width: 150px; }
+.profile-info { flex: 1 1 200px; min-width: 0; }
+.profile-name { margin: 0; font-family: var(--serif); font-size: 30px; line-height: 1.1; }
+.profile-tagline { margin: 3px 0 10px; font-style: italic; color: var(--dark); }
+
+/* facts / stats table */
+.ab-facts-wrap { background: #fff; }
+.ab-facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); margin: 0; }
+.ab-facts dt, .ab-facts dd { margin: 0; padding: 4px 8px; border-bottom: 1px dotted var(--mid); }
+.ab-facts dt { font-weight: 700; background: #ececec; border-right: 1px dotted var(--mid); }
+.ab-facts dt:last-of-type, .ab-facts dd:last-of-type { border-bottom: 0; }
+
+/* text */
+.ab-text h2 { margin: 0 0 8px; font-family: var(--serif); font-size: 22px; }
+.ab-text p { margin: 0 0 9px; white-space: pre-line; }
+.ab-text p:last-child { margin-bottom: 0; }
+
+/* photo block */
+.ab-bigphoto { max-width: 520px; margin: 0 auto; }
+.ab-caption { margin: 8px 0 0; text-align: center; font-style: italic; color: var(--dark); }
+
+/* contact */
+.ab-contact-intro { margin: 0 0 8px; }
+.ab-contact { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.ab-contact li { padding: 4px 8px; background: #fff; border: 1px dotted var(--mid); }
+.ab-contact b { margin-right: 4px; }
+
+/* favorites list */
+.ab-list h3 { margin: 0 0 6px; font-family: var(--serif); font-size: 19px; }
+.ab-list ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.ab-list li::before { content: "\2605  "; color: #c9a400; }
+
+/* sticky note */
+.ab-note {
+  padding: 12px 14px;
+  background: #fff8a8;
+  border: 1px solid #c9b800;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, .3);
+  white-space: pre-line;
+  font-family: "Comic Sans MS", "Chalkboard SE", var(--ui);
+}
+
+/* scrolling text + rainbow line */
+.ab-marquee { font-size: 15px; padding: 5px 0; }
+hr.ab-rainbow {
+  height: 6px;
+  margin: 0;
+  border: 0;
+  background: linear-gradient(90deg, var(--rainbow));
+}
+
+@media (max-width: 520px) {
+  .profile .ab-photo { flex-basis: 120px; width: 120px; }
+  .profile-name { font-size: 26px; }
+}
