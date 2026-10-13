@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+  YOU DON'T NEED TO EDIT THIS FILE.
+  To add links: log in on login.html, then come back to this page.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Links - zuzz's corner of the internet</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="guestbook.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body data-title="Links">
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="window out">
+    <div class="titlebar">
+      <span aria-hidden="true">🌐</span>
+      <span class="name" id="topBarTitle"></span>
+      <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+    </div>
+    <div class="body">
+      <div class="banner">
+        <h1 id="headline"></h1>
+        <p id="tagline"></p>
+      </div>
+      <div class="ticker in" id="tickerBox" aria-hidden="true">
+        <span id="ticker"></span>
+      </div>
+      <noscript><p class="no-js">This page needs JavaScript turned on to show its content.</p></noscript>
+    </div>
+  </header>
+
+  <div class="cols">
+
+    <!-- LEFT: LINKS -->
+    <main class="stack">
+
+      <section class="window out" aria-labelledby="linksWindowTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">🔗</span>
+          <span class="name" id="linksWindowTitle">links.html - Cool sites i like</span>
+          <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+        </div>
+        <div class="body">
+          <p class="links-intro" id="linksIntro"></p>
+          <div class="link-groups" id="linksList" aria-live="polite">
+            <p>loading links...</p>
+          </div>
+          <div class="note-box" id="linksSetup" hidden>
+            <b>Starter list.</b> These links come from <code>pages-config.js</code>. Once your Firebase details are in <code>guestbook-config.js</code>, you can log in and add links right from this page.
+          </div>
+        </div>
+      </section>
+
+      <!-- Only appears once you're logged in -->
+      <section class="window out" id="linksAdmin" aria-labelledby="adminTitle" hidden>
+        <div class="titlebar">
+          <span aria-hidden="true">🛠️</span>
+          <span class="name" id="adminTitle">add-link.exe - Admin</span>
+          <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+        </div>
+        <div class="body">
+          <div class="admin-bar">
+            <span>Logged in as <b id="adminWho"></b></span>
+            <button type="button" class="mini-btn" id="adminLogout">log out</button>
+          </div>
+
+          <form id="linkForm" class="gb-form" autocomplete="off" novalidate>
+            <div>
+              <label for="linkTitle">Title</label>
+              <input type="text" id="linkTitle" maxlength="80" required>
+            </div>
+            <div>
+              <label for="linkUrl">Web address</label>
+              <input type="text" id="linkUrl" placeholder="https://example.com" maxlength="300" inputmode="url" autocapitalize="off" required>
+            </div>
+            <div>
+              <label for="linkDesc">Short description (optional)</label>
+              <input type="text" id="linkDesc" maxlength="200">
+            </div>
+            <div>
+              <label for="linkCat">Folder</label>
+              <input type="text" id="linkCat" list="catList" maxlength="40">
+              <datalist id="catList"></datalist>
+            </div>
+            <div class="gb-actions">
+              <button type="submit" class="btn" id="linkSubmit">Add link</button>
+            </div>
+            <div class="gb-status" id="linkStatus" role="status" aria-live="polite" hidden></div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- RIGHT: NAVIGATOR -->
+    <aside class="side stack">
+
+      <nav class="window out" aria-labelledby="menuTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">📁</span>
+          <span class="name" id="menuTitle"></span>
+          <span class="btns" aria-hidden="true"><span>x</span></span>
+        </div>
+        <div class="body">
+          <ul class="nav" id="menu"></ul>
+        </div>
+      </nav>
+
+      <section class="window out" aria-labelledby="infoTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">📊</span>
+          <span class="name" id="infoTitle"></span>
+          <span class="btns" aria-hidden="true"><span>x</span></span>
+        </div>
+        <div class="body" style="text-align:center">
+          <div>You are visitor</div>
+          <div class="counter" id="counter"></div>
+          <div class="badges" id="badges"></div>
+        </div>
+      </section>
+
+    </aside>
+  </div>
+
+  <footer class="page-foot">
+    &copy; <span id="footYear"></span> <span id="footName"></span>. made with plain HTML and hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+  </footer>
+</div>
+
+<!-- TASKBAR -->
+<div class="taskbar" aria-hidden="true">
+  <button class="start" type="button" tabindex="-1">🪟 Start</button>
+  <div class="task in" id="taskbarText"></div>
+  <div class="tray in" id="clock"></div>
+</div>
+
+<script src="config.js"></script>
+<script src="site.js"></script>
+<script src="guestbook-config.js"></script>
+<script src="pages-config.js"></script>
+<script src="fb.js"></script>
+<script src="links.js"></script>
+</body>
+</html>

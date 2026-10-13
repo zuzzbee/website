@@ -153,6 +153,15 @@
   setText("footYear", String(new Date().getFullYear()));
   setText("footName", S.footerName);
 
+  // Small "admin" link that leads to the login page
+  var foot = document.querySelector("footer.page-foot");
+  if (foot && S.showAdminLink !== false) {
+    foot.appendChild(document.createTextNode(" \u00b7 "));
+    var adminLink = make("a", "", "admin");
+    adminLink.href = "login.html";
+    foot.appendChild(adminLink);
+  }
+
   /* ---------- taskbar clock ---------- */
   var clock = $("clock");
   if (clock) {

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--
+  YOU DON'T NEED TO EDIT THIS FILE.
+  Words and links are in config.js. Chat settings are in pages-config.js.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat - zuzz's corner of the internet</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="guestbook.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body data-title="Chat">
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="window out">
+    <div class="titlebar">
+      <span aria-hidden="true">🌐</span>
+      <span class="name" id="topBarTitle"></span>
+      <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+    </div>
+    <div class="body">
+      <div class="banner">
+        <h1 id="headline"></h1>
+        <p id="tagline"></p>
+      </div>
+      <div class="ticker in" id="tickerBox" aria-hidden="true">
+        <span id="ticker"></span>
+      </div>
+      <noscript><p class="no-js">This page needs JavaScript turned on to show its content.</p></noscript>
+    </div>
+  </header>
+
+  <div class="cols">
+
+    <!-- LEFT: CHAT -->
+    <main class="stack">
+
+      <section class="window out" aria-labelledby="chatWindowTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">💬</span>
+          <span class="name" id="chatWindowTitle">chatroom.exe - The Chat Room</span>
+          <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+        </div>
+        <div class="body">
+          <p class="embed-note" id="chatIntro"></p>
+
+          <div class="admin-bar" id="chatMod" hidden>
+            <span><b>Moderator mode.</b> You're logged in. Use "delete" next to any message to remove it.</span>
+          </div>
+
+          <div class="chat-log in" id="chatLog" role="log" aria-live="polite" tabindex="0">
+            <p class="chat-empty">connecting...</p>
+          </div>
+
+          <form id="chatForm" class="gb-form chat-form" autocomplete="off" novalidate>
+            <div class="chat-name-field">
+              <label class="sr-only" for="chatName">Your name</label>
+              <input type="text" id="chatName" name="name" placeholder="your name" maxlength="24" required>
+            </div>
+            <div>
+              <label class="sr-only" for="chatMessage">Your message</label>
+              <input type="text" id="chatMessage" name="message" placeholder="type a message..." maxlength="200" required>
+            </div>
+            <button type="submit" class="btn" id="chatSend" disabled>Send</button>
+          </form>
+          <div class="gb-status chat-status" id="chatStatus" role="status" aria-live="polite" hidden></div>
+
+          <div class="note-box" id="chatSetup" hidden>
+            <b>Demo mode.</b> The chat isn't connected yet, so messages are only saved in this browser. To make it live for everyone, add your Firebase details to <code>guestbook-config.js</code>.
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- RIGHT: NAVIGATOR -->
+    <aside class="side stack">
+
+      <nav class="window out" aria-labelledby="menuTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">📁</span>
+          <span class="name" id="menuTitle"></span>
+          <span class="btns" aria-hidden="true"><span>x</span></span>
+        </div>
+        <div class="body">
+          <ul class="nav" id="menu"></ul>
+        </div>
+      </nav>
+
+      <section class="window out" aria-labelledby="infoTitle">
+        <div class="titlebar">
+          <span aria-hidden="true">📊</span>
+          <span class="name" id="infoTitle"></span>
+          <span class="btns" aria-hidden="true"><span>x</span></span>
+        </div>
+        <div class="body" style="text-align:center">
+          <div>You are visitor</div>
+          <div class="counter" id="counter"></div>
+          <div class="badges" id="badges"></div>
+        </div>
+      </section>
+
+    </aside>
+  </div>
+
+  <footer class="page-foot">
+    &copy; <span id="footYear"></span> <span id="footName"></span>. made with plain HTML and hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+  </footer>
+</div>
+
+<!-- TASKBAR -->
+<div class="taskbar" aria-hidden="true">
+  <button class="start" type="button" tabindex="-1">🪟 Start</button>
+  <div class="task in" id="taskbarText"></div>
+  <div class="tray in" id="clock"></div>
+</div>
+
+<script src="config.js"></script>
+<script src="site.js"></script>
+<script src="guestbook-config.js"></script>
+<script src="guestbook.js"></script><!-- also provides the bad-word filter -->
+<script src="pages-config.js"></script>
+<script src="fb.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>
