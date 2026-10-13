@@ -34,7 +34,7 @@ window.SITE = {
   tagline: "you are visitor number something of very few. thanks for stopping by.",
 
   // The text that scrolls across the page (leave "" to hide it)
-  scrollingText: "*** new: this site is under construction *** sign the guestbook before you leave ",
+  scrollingText: "*** new: this site is under construction *** sign the guestbook before you leave *** ",
 
   // The name shown on the bottom taskbar button
   taskbarText: "zuzz's corner of the internet",
@@ -45,7 +45,7 @@ window.SITE = {
   spotify: {
     show: true,                       // true = show this box, false = hide it
     windowTitle: "Now Playing - Spotify",
-    intro: "what i've had on repeat lately:",
+    intro: "the most vibiest playlist ever created:",
 
     // HOW TO GET YOUR LINK: In Spotify, right-click a playlist, album,
     // song or artist > Share > Copy link. Paste it between the quotes.
@@ -62,7 +62,7 @@ window.SITE = {
   discord: {
     show: true,                       // true = show this box, false = hide it
     windowTitle: "Chat Room - Discord",
-    intro: "come hang out. the door is open:",
+    intro: "the chatroom of y2k26 :D",
 
     // HOW TO GET YOUR SERVER ID:
     //  1. In Discord, go to Server Settings > Widget
