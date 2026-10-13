@@ -15,6 +15,9 @@
 
    Want to change COLORS instead? Open style.css. The colors are in
    plain English at the very top.
+
+   Chat, links and login settings are in pages-config.js.
+   Guestbook and Firebase settings are in guestbook-config.js.
    ===================================================================== */
 
 window.SITE = {
@@ -34,7 +37,7 @@ window.SITE = {
   tagline: "you are visitor number something of very few. thanks for stopping by.",
 
   // The text that scrolls across the page (leave "" to hide it)
-  scrollingText: "*** new: this site is under construction *** sign the guestbook before you leave *** ",
+  scrollingText: "*** new: this site is under construction *** sign the guestbook before you leave ",
 
   // The name shown on the bottom taskbar button
   taskbarText: "zuzz's corner of the internet",
@@ -45,11 +48,11 @@ window.SITE = {
   spotify: {
     show: true,                       // true = show this box, false = hide it
     windowTitle: "Now Playing - Spotify",
-    intro: "the most vibiest playlist ever created:",
+    intro: "what i've had on repeat lately:",
 
     // HOW TO GET YOUR LINK: In Spotify, right-click a playlist, album,
     // song or artist > Share > Copy link. Paste it between the quotes.
-         link: "https://open.spotify.com/playlist/7vMRlGd6w1yoG7VbJA2GMp?si=94505c3efc004484",
+    link: "https://open.spotify.com/playlist/7vMRlGd6w1yoG7VbJA2GMp?si=94505c3efc004484",
 
     // Height of the player in pixels. Use 352 for playlists/albums,
     // and 152 for a single song.
@@ -62,13 +65,13 @@ window.SITE = {
   discord: {
     show: true,                       // true = show this box, false = hide it
     windowTitle: "Chat Room - Discord",
-    intro: "the chatroom of y2k26 :D",
+    intro: "come hang out. the door is open:",
 
     // HOW TO GET YOUR SERVER ID:
     //  1. In Discord, go to Server Settings > Widget
     //  2. Turn ON "Enable Server Widget"
     //  3. Copy the Server ID shown on that page and paste it below
-    serverId: "1247345874502156380",
+    serverId: "YOUR_SERVER_ID",
 
     // Height of the box in pixels
     height: 400
@@ -106,8 +109,7 @@ window.SITE = {
   menu: [
     { icon: "🏠", name: "Home",      note: "you are here",          page: "index.html" },
     { icon: "🙋", name: "About Me",  note: "who is zuzz?",          page: "about.html" },
-    { icon: "💾", name: "Projects",  note: "things i've made",      page: "projects.html" },
-    { icon: "📝", name: "Blog",      note: "thoughts and updates",  page: "blog.html" },
+    { icon: "💬", name: "Chat",      note: "talk live, right now",  page: "chat.html" },
     { icon: "🖼️", name: "Gallery",   note: "pictures",              page: "gallery.html" },
     { icon: "🔗", name: "Links",     note: "cool sites i like",     page: "links.html" },
     { icon: "📖", name: "Guestbook", note: "say hi",                page: "guestbook.html" }
@@ -122,7 +124,7 @@ window.SITE = {
 
   // The number on the visitor counter. This is just a number you type
   // in yourself. It does not count real visitors.
-  visitorCount: 42,
+  visitorCount: 69420,
 
   // The little badges. Each [ ] is one badge, and each "quoted" piece
   // inside is one line of text on it. Set yellow to true for a yellow badge.
@@ -137,6 +139,11 @@ window.SITE = {
 
   // Your name in the copyright line at the bottom (the year updates itself)
   footerName: "zuzz",
+
+  // The small "admin" link at the bottom of every page that leads to
+  // your login page. Set to false to hide it (you can still visit
+  // yourwebsite/login.html by typing it in).
+  showAdminLink: true,
 
 
   /* --------------------------- HELP NOTES ---------------------------- */
