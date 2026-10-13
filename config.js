@@ -49,7 +49,7 @@ window.SITE = {
 
     // HOW TO GET YOUR LINK: In Spotify, right-click a playlist, album,
     // song or artist > Share > Copy link. Paste it between the quotes.
-    link: "link: "https://open.spotify.com/playlist/7vMRlGd6w1yoG7VbJA2GMp?si=94505c3efc004484",",
+         link: "https://open.spotify.com/playlist/7vMRlGd6w1yoG7VbJA2GMp?si=94505c3efc004484",
 
     // Height of the player in pixels. Use 352 for playlists/albums,
     // and 152 for a single song.
