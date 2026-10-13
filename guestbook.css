@@ -1,0 +1,79 @@
+/* =====================================================================
+   GUESTBOOK STYLES  -  no need to edit.
+   Colors come from the settings at the top of style.css.
+   ===================================================================== */
+
+.gb-form { display: grid; gap: 10px; }
+.gb-form label { display: block; margin-bottom: 3px; font-weight: 700; }
+
+.gb-form input[type="text"],
+.gb-form textarea {
+  width: 100%;
+  padding: 5px 6px;
+  font: inherit;
+  font-size: 16px;            /* stops iPhones zooming in on tap */
+  color: #000;
+  background: #fff;
+  border-radius: 0;
+  border: 2px solid;
+  border-color: var(--mid) var(--hi) var(--hi) var(--mid);
+  box-shadow: inset 1px 1px var(--dark), inset -1px -1px #dfdfdf;
+}
+.gb-form textarea { min-height: 100px; resize: vertical; }
+.gb-form input:focus-visible,
+.gb-form textarea:focus-visible { outline: 1px dotted #000; outline-offset: -4px; }
+
+.gb-count { margin-top: 2px; font-size: 12px; text-align: right; color: var(--dark); }
+
+/* Spam-trap field: off-screen, not display:none, so bots still see it */
+.gb-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.gb-actions { display: flex; }
+
+.btn {
+  padding: 5px 18px;
+  font: inherit;
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  background: var(--window-grey);
+  border: 2px solid;
+  border-color: var(--hi) var(--dark) var(--dark) var(--hi);
+  box-shadow: inset -1px -1px var(--mid), inset 1px 1px #dfdfdf;
+}
+.btn:hover:not(:disabled) { background: #d4d4d4; }
+.btn:active:not(:disabled) {
+  border-color: var(--dark) var(--hi) var(--hi) var(--dark);
+  box-shadow: inset 1px 1px var(--mid);
+}
+.btn:disabled { color: var(--mid); cursor: not-allowed; }
+.btn:focus-visible { outline: 1px dotted #000; outline-offset: 2px; }
+
+.gb-status { padding: 6px 8px; font-size: 13px; border: 1px solid #000; }
+.gb-status.err { background: #ffd9d9; }
+.gb-status.ok  { background: #d9ffd9; }
+
+.gb-setup {
+  margin-top: 10px;
+  padding: 6px 8px;
+  font-size: 12px;
+  background: var(--note-yellow);
+  border: 1px solid #000;
+}
+.gb-setup code { padding: 0 3px; background: #fff; border: 1px solid var(--mid); }
+
+.entries { display: grid; gap: 8px; }
+.entry { padding: 8px 10px; }
+.entry .who {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+  padding-bottom: 3px;
+  border-bottom: 1px dotted var(--mid);
+}
+.entry .when { font-size: 11px; color: var(--dark); }
+.entry p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.gb-empty { margin: 0; padding: 8px; }
