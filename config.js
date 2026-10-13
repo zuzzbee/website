@@ -22,19 +22,19 @@ window.SITE = {
   /* ------------------------- TOP OF THE PAGE ------------------------- */
 
   // The text shown on the browser tab
-  browserTabTitle: "zuzz's corner of the internet",
+  browserTabTitle: "zuzz's corner of the internet, hello!",
 
   // The text in the blue bar at the very top of the page
-  topBarTitle: "Netscape Navigator - [zuzz's corner of the internet]",
+  topBarTitle: "Netscam Navigator - [zuzz's corner of the internet]",
 
   // The big rainbow heading
   headline: "welcome to zuzz's corner of the internet!",
 
   // The small yellow line under the heading
-  tagline: "you are visitor number one of very few. thanks for stopping by.",
+  tagline: "you are visitor number something of very few. thanks for stopping by.",
 
   // The text that scrolls across the page (leave "" to hide it)
-  scrollingText: "*** new: this site is under construction *** sign the guestbook before you leave *** best viewed at 800x600 with your imagination turned on ***",
+  scrollingText: "*** new: this site is under construction *** sign the guestbook before you leave ",
 
   // The name shown on the bottom taskbar button
   taskbarText: "zuzz's corner of the internet",
@@ -49,7 +49,7 @@ window.SITE = {
 
     // HOW TO GET YOUR LINK: In Spotify, right-click a playlist, album,
     // song or artist > Share > Copy link. Paste it between the quotes.
-    link: "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M",
+    link: "link: "https://open.spotify.com/playlist/7vMRlGd6w1yoG7VbJA2GMp?si=94505c3efc004484",",
 
     // Height of the player in pixels. Use 352 for playlists/albums,
     // and 152 for a single song.
@@ -84,11 +84,11 @@ window.SITE = {
 
     // Each line below becomes its own paragraph. Add or remove lines freely.
     paragraphs: [
-      "this is my little corner of the web. i'm still building it, so things will move around, break, and get better. pick a page from the menu and have a look around.",
+      "this is my little corner of the web. i'm still vibe-coding it, so things will move around, break, and get better. pick a page from the menu and have a look around.",
     ],
 
     // The blinking red "NEW!" line. Leave "" to hide it.
-    newNote: "more pages coming soon."
+    newNote: "more pages coming soon, courtesy of Claude :D."
   },
 
 
@@ -122,7 +122,7 @@ window.SITE = {
 
   // The number on the visitor counter. This is just a number you type
   // in yourself. It does not count real visitors.
-  visitorCount: 42,
+  visitorCount: 69420,
 
   // The little badges. Each [ ] is one badge, and each "quoted" piece
   // inside is one line of text on it. Set yellow to true for a yellow badge.
@@ -144,5 +144,5 @@ window.SITE = {
   // The little yellow "how do I change this?" notes under the Spotify and
   // Discord boxes are reminders for YOU. Once your boxes are working, set
   // this to false so visitors don't see them.
-  showHelpNotes: true
+  showHelpNotes: false
 };
