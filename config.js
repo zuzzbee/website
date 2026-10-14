@@ -50,9 +50,10 @@ window.SITE = {
     windowTitle: "Now Playing - Spotify",
     intro: "what i've had on repeat lately:",
 
-    // HOW TO GET YOUR LINK: In Spotify, right-click a playlist, album,
-    // song or artist > Share > Copy link. Paste it between the quotes.
-    link: "https://open.spotify.com/playlist/1TSwxAPD7gl99tsQcIzO2N?si=2df230b634b74999",
+    // List of playlists. Add more as needed.
+    playlists: [
+      { name: "My Favorite Playlist", link: "https://open.spotify.com/playlist/1TSwxAPD7gl99tsQcIzO2N?si=2df230b634b74999" }
+    ],
 
     // Height of the player in pixels. Use 352 for playlists/albums,
     // and 152 for a single song.

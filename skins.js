@@ -227,9 +227,13 @@
 
   function buildSpotify(slot) {
     var sp = S.spotify || {};
-    if (sp.show === false || !sp.link) { slot.hidden = true; return; }
+    if (sp.show === false || (!sp.link && (!sp.playlists || sp.playlists.length === 0))) { slot.hidden = true; return; }
 
-    var m = String(sp.link).match(SPOTIFY_RE);
+    // Backward compatibility: support old link structure
+    var playlistList = sp.playlists || [{ name: "Default", link: sp.link }];
+    var currentPlaylist = playlistList[0];
+
+    var m = String(currentPlaylist.link).match(SPOTIFY_RE);
     var x = xpWindow("lw", "LimeWire", LIME);
     x.body.appendChild(menuBar(["File", "View", "Tools", "Help"]));
 
@@ -394,7 +398,31 @@
     /* ---- Library tab (the real Spotify player) ---- */
     libraryPanel.classList.add("lw-library");
     libraryPanel.appendChild(el("p", "lw-crumb", "Library › Shared › Now Playing"));
-    var playerBox = el("div");
+
+    // Playlist selector
+    if (playlistList.length > 1) {
+      var selWrap = el("div", "lw-selector-wrap");
+      selWrap.style.margin = "8px 0";
+      selWrap.appendChild(el("span", "", "Select Playlist: "));
+      var sel = el("select", "lw-selector");
+      sel.style.font = "inherit";
+      playlistList.forEach(function (p, i) {
+        var opt = el("option", "", p.name);
+        opt.value = i;
+        sel.appendChild(opt);
+      });
+      sel.addEventListener("change", function (e) {
+        var p = playlistList[e.target.value];
+        var pm = String(p.link).match(SPOTIFY_RE);
+        if (pm && playerBox.firstChild) {
+          playerBox.firstChild.src = "https://open.spotify.com/embed/" + pm[1] + "/" + pm[2] + "?theme=0";
+        }
+      });
+      selWrap.appendChild(sel);
+      libraryPanel.appendChild(selWrap);
+    }
+
+    var playerBox = el("div", "lw-player-box");
     libraryPanel.appendChild(playerBox);
     var playerMade = false;
     function ensurePlayer() {
