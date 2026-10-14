@@ -59,17 +59,9 @@
         console.log("Firebase visitor counter reset to 0 on first load");
       }
 
-      var sessionKey = "zuzz-visited-fire";
-      var promise;
-
       // Increment remotely on every page load
-      if (!sessionStorage.getItem(sessionKey)) {
-        promise = fs.setDoc(docRef, { count: fs.increment(1) }, { merge: true });
-        sessionStorage.setItem(sessionKey, "1");
-        console.log("Remote visitor counter incremented");
-      } else {
-        promise = Promise.resolve();
-      }
+      var promise = fs.setDoc(docRef, { count: fs.increment(1) }, { merge: true });
+      console.log("Remote visitor counter incremented");
 
       promise.then(function () {
         return fs.getDoc(docRef);
