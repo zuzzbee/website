@@ -1,0 +1,84 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /* Helper that identifies the authorized admin user */
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.uid == "BEhgFeK6JYR1Er1iJkU5Zpov3V12";
+    }
+
+    /* ---------- Content pages ---------- */
+    match /pages/{pageId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    /* ---------- Image assets ---------- */
+    match /aboutImages/{imageId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /galleryImages/{imageId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    /* ---------- Guestbook ---------- */
+    match /guestbook/{entryId} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasOnly(["name","message","createdAt"]) &&
+                    request.resource.data.name is string &&
+                    request.resource.data.name.size() > 0 &&
+                    request.resource.data.name.size() <= 30 &&
+                    request.resource.data.message is string &&
+                    request.resource.data.message.size() > 0 &&
+                    request.resource.data.message.size() <= 300 &&
+                    request.resource.data.createdAt == request.time;
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+
+    /* ---------- Chat ---------- */
+    match /chat/{msgId} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasOnly(["name","message","createdAt"]) &&
+                    request.resource.data.name is string &&
+                    request.resource.data.name.size() > 0 &&
+                    request.resource.data.name.size() <= 24 &&
+                    request.resource.data.message is string &&
+                    request.resource.data.message.size() > 0 &&
+                    request.resource.data.message.size() <= 200 &&
+                    request.resource.data.createdAt == request.time;
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+
+    /* ---------- Links ---------- */
+    match /links/{linkId} {
+      allow read: if true;
+      allow create: if isAdmin() &&
+                    request.resource.data.keys().hasOnly(["title","url","description","category","createdAt"]) &&
+                    request.resource.data.title is string &&
+                    request.resource.data.title.size() > 0 &&
+                    request.resource.data.title.size() <= 80 &&
+                    request.resource.data.url is string &&
+                    request.resource.data.url.matches('^https?://.+') &&
+                    request.resource.data.url.size() <= 300 &&
+                    request.resource.data.description is string &&
+                    request.resource.data.description.size() <= 200 &&
+                    request.resource.data.category is string &&
+                    request.resource.data.category.size() > 0 &&
+                    request.resource.data.category.size() <= 40 &&
+                    request.resource.data.createdAt == request.time;
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+
+    /* ---------- Site Settings (Admin Only) ---------- */
+    match /siteSettings/{docId} {
+      allow read, write: if isAdmin();
+    }
+
+  }
+}

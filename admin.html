@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Settings - zuzz's corner of the internet</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="guestbook.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body data-title="Admin Settings">
+<div class="page">
+  <header class="window out">
+    <div class="titlebar">
+      <span aria-hidden="true">🌐</span>
+      <span class="name" id="topBarTitle"></span>
+      <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+    </div>
+    <div class="body">
+      <div class="banner">
+        <h1 id="headline"></h1>
+        <p id="tagline"></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="stack">
+    <section class="window out" aria-labelledby="settingsTitle">
+      <div class="titlebar">
+        <span aria-hidden="true">⚙️</span>
+        <span class="name" id="settingsTitle">settings.exe - Admin</span>
+        <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
+      </div>
+      <div class="body">
+        <form id="settingsForm" class="gb-form">
+          <h3>Discord Settings</h3>
+          <div>
+            <label for="discordServerId">Server ID</label>
+            <input type="text" id="discordServerId" name="discordServerId">
+          </div>
+          <div>
+            <label for="discordInviteLink">Invite Link</label>
+            <input type="text" id="discordInviteLink" name="discordInviteLink">
+          </div>
+
+          <h3>Spotify Playlists</h3>
+          <div id="playlistContainer"></div>
+          <button type="button" class="btn" id="addPlaylistBtn">Add Playlist</button>
+
+          <div class="login-actions" style="margin-top: 15px;">
+            <button type="submit" class="btn" id="saveBtn">Save Settings</button>
+          </div>
+        </form>
+        <div class="gb-status" id="status" role="status" aria-live="polite" style="margin-top:10px" hidden></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="config.js"></script>
+<script src="site.js"></script>
+<script src="guestbook-config.js"></script>
+<script src="fb.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

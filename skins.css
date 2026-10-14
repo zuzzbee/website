@@ -5,14 +5,14 @@
 
 .skin-slot { display: block; }
 
-/* ---------------------- Windows XP window frame ---------------------- */
+/* ---------------------- Windows 9x window frame ---------------------- */
 
 .xp {
-  padding: 0 3px 3px;
-  background: #0a50d8;
-  border: 1px solid #0831b0;
-  border-radius: 8px 8px 0 0;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, .35);
+  padding: 3px;
+  background: #c0c0c0; /* var(--window-grey) */
+  border: 2px solid;
+  border-color: #ffffff #404040 #404040 #ffffff; /* var(--hi) var(--dark) var(--dark) var(--hi) */
+  box-shadow: inset -1px -1px #808080, inset 1px 1px #dfdfdf; /* var(--mid) */
   font-family: Tahoma, "MS Sans Serif", Verdana, Geneva, sans-serif;
   font-size: 12px;
   color: #000;
@@ -21,45 +21,35 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  height: 28px;
-  margin: 0 -3px;
-  padding: 0 5px 0 8px;
+  padding: 3px 4px;
   color: #fff;
-  font-size: 13px;
   font-weight: 700;
-  text-shadow: 1px 1px #0f1089;
-  border-radius: 7px 7px 0 0;
-  background: linear-gradient(180deg, #0058ee 0%, #3593ff 4%, #288eff 6%, #127dff 8%, #036ffc 10%, #0262ee 14%, #0057e5 20%, #0054e3 24%, #0055eb 56%, #005bf5 66%, #026afe 76%, #0062ef 86%, #0052d6 92%, #0040ab 94%, #003092 100%);
+  background: linear-gradient(90deg, #000080, #1084d0); /* var(--title-bar-left), var(--title-bar-right) */
 }
 .xp-name { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .xp-btns { display: flex; gap: 2px; }
 .xp-btn-sys {
-  display: grid;
-  place-items: center;
-  width: 21px; height: 21px;
-  font-size: 12px;
-  line-height: 1;
-  color: #fff;
+  width: 18px; height: 16px;
+  display: grid; place-items: center;
+  font-size: 11px; line-height: 1; color: #000;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #404040 #404040 #ffffff;
   text-shadow: none;
-  border: 1px solid #fff;
-  border-radius: 3px;
-  background: radial-gradient(circle at 90% 90%, #0054e9 0%, #2263d5 55%, #4479e4 70%, #a3bbec 90%, #fff 100%);
+  border-radius: 0;
 }
-.xp-btn-sys.xp-close {
-  background: radial-gradient(circle at 90% 90%, #cc4600 0%, #dc6527 55%, #cd7546 70%, #ffccb2 90%, #fff 100%);
-}
-.xp-body { background: #ece9d8; }
+.xp-body { background: #c0c0c0; }
 
 .xp-menu {
   display: flex;
   flex-wrap: wrap;
   gap: 2px 12px;
   padding: 3px 8px;
-  background: #f3f1e6;
-  border-bottom: 1px solid #d4d0c8;
+  background: #c0c0c0;
+  border-bottom: 1px solid #808080;
 }
 
-/* XP-style push button */
+/* 9x-style push button */
 .xp-btn {
   display: inline-block;
   padding: 3px 14px;
@@ -67,13 +57,17 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
-  background: linear-gradient(180deg, #fff, #ecebe5 86%, #d8d0c4);
-  border: 1px solid #003c74;
-  border-radius: 3px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #404040 #404040 #ffffff;
+  box-shadow: inset -1px -1px #808080, inset 1px 1px #dfdfdf;
+  border-radius: 0;
 }
 .xp-btn:visited { color: #000; }
-.xp-btn:hover { box-shadow: inset 0 0 0 2px #f8b636; }
-.xp-btn:active { background: #d6d3c6; }
+.xp-btn:active {
+  border-color: #404040 #ffffff #ffffff #404040;
+  box-shadow: inset 1px 1px #808080;
+}
 .xp-btn:focus-visible { outline: 1px dotted #000; outline-offset: 2px; }
 
 .skin-ico { display: inline-flex; flex: 0 0 auto; line-height: 0; }
@@ -191,51 +185,50 @@
   90% { transform: translate(-1px, 1px); }
 }
 
-/* ============================== LIMEWIRE ============================== */
+/* --------------------------- SPOTIFY  ->  LIMEWIRE --------------------------- */
 
-.lw .xp-body { padding-bottom: 0; }
+.lw .xp-body { background: #c0c0c0; padding: 0; }
 
 .lw-brand {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 10px;
+  padding: 4px 10px;
   color: #fff;
-  background: linear-gradient(180deg, #b5ec54, #6fb511 55%, #5a9d06);
-  border-bottom: 1px solid #3f7a0a;
-  text-shadow: 1px 1px 1px rgba(0, 60, 0, .6);
+  background: #000080;
+  border-bottom: 1px solid #000080;
 }
-.lw-brand .skin-ico svg { width: 26px; height: 26px; }
-.lw-word { font-family: Impact, "Arial Black", Tahoma, sans-serif; font-size: 22px; font-style: italic; letter-spacing: .5px; }
-.lw-tag { margin-left: auto; font-size: 11px; font-weight: 700; text-align: right; }
+.lw-brand .skin-ico svg { width: 20px; height: 20px; }
+.lw-word { font-family: Impact, "Arial Black", Tahoma, sans-serif; font-size: 18px; font-style: italic; }
+.lw-tag { margin-left: auto; font-size: 11px; font-weight: 700; }
 
-.lw-tabs { display: flex; flex-wrap: wrap; gap: 2px; padding: 8px 8px 0; }
+.lw-tabs { display: flex; flex-wrap: wrap; gap: 2px; padding: 4px 4px 0; background: #c0c0c0; }
 .lw-tab {
-  padding: 4px 14px;
+  padding: 3px 10px;
   font: inherit;
   color: #000;
   cursor: pointer;
-  background: #f4f3ee;
-  border: 1px solid #919b9c;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #404040 #404040 #ffffff;
+  box-shadow: inset -1px -1px #808080, inset 1px 1px #dfdfdf;
   border-bottom: 0;
-  border-radius: 3px 3px 0 0;
+  border-radius: 0;
 }
 .lw-tab[aria-selected="true"] {
-  position: relative;
-  top: 1px;
-  padding-top: 5px;
-  font-weight: 700;
-  background: #fff;
-  border-top: 3px solid #7cc01f;
+  background: #ece9d8;
+  border-color: #ffffff #404040 #c0c0c0 #ffffff;
+  box-shadow: inset -1px -1px #808080, inset 1px 1px #dfdfdf;
 }
 .lw-tab:focus-visible { outline: 1px dotted #000; outline-offset: -4px; }
 
 .lw-panel {
-  margin: 0 8px;
+  margin: 0 4px 4px;
   padding: 10px;
   min-height: 190px;
-  background: #fff;
-  border: 1px solid #919b9c;
+  background: #ece9d8;
+  border: 2px solid;
+  border-color: #404040 #ffffff #ffffff #404040;
 }
 .lw-q { margin: 0 0 8px; overflow-wrap: anywhere; }
 .lw-q b { color: #3f7a0a; }
@@ -246,10 +239,11 @@
   text-align: left;
   font-weight: 400;
   white-space: nowrap;
-  background: linear-gradient(180deg, #fff, #e1ddd0);
-  border: 1px solid #aca899;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #404040 #404040 #ffffff;
 }
-.lw-table td { padding: 5px 6px; vertical-align: middle; border-bottom: 1px solid #eee; }
+.lw-table td { padding: 5px 6px; vertical-align: middle; border-bottom: 1px solid #808080; }
 .lw-table tbody tr:hover td { background: #e8f1ff; }
 .lw-table th, .lw-table td { overflow-wrap: normal; word-break: normal; }
 .lw-table .lw-name { font-weight: 700; overflow-wrap: anywhere; }

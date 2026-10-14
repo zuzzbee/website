@@ -1,23 +1,3 @@
-/* =========================== Firestore security rules ===========================
-
-   Proposes a set of fine‑grained rules that mirror the existing
-   application behaviour:
-
-   • Public read access is granted to the content pages and to all
-   image collections.  This matches the pattern used by the About page
-   and the light‑weight photo gallery.
-
-   • Only the administrative user (uid: "BEhgFeK6JYR1Er1iJkU5Zpov3V12") can
-   write to any of the protected collections.
-
-   • All other collection rules are kept identical to the current
-   production configuration.
-
-   Copy this file to the root of your git repository and deploy to
-   Firebase:
-     firebase deploy --only firestore:rules
-*/
-
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -30,19 +10,15 @@ service cloud.firestore {
 
     /* ---------- Content pages ---------- */
     match /pages/{pageId} {
-      // Anyone can read a page – the visitor counter is populated via a field.
       allow read: if true;
-      // Writing (creating/updating) is reserved for the admin.
       allow write: if isAdmin();
     }
 
     /* ---------- Image assets ---------- */
-    // Images that belong to the About page.
     match /aboutImages/{imageId} {
       allow read: if true;
       allow write: if isAdmin();
     }
-    // Images that belong to the Gallery page.
     match /galleryImages/{imageId} {
       allow read: if true;
       allow write: if isAdmin();
@@ -99,7 +75,10 @@ service cloud.firestore {
       allow delete: if isAdmin();
     }
 
+    /* ---------- Site Settings (Admin Only) ---------- */
+    match /siteSettings/{docId} {
+      allow read, write: if isAdmin();
+    }
+
   }
 }
-
-/* ------------- End of rules ------------- */
