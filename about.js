@@ -459,6 +459,7 @@
   var editing = false;
   var editingId = null;
   var loadFailed = false;
+  var loadErrorCode = "";
 
   var toolbar = $("aboutToolbar");
   var stateEl = $("aboutState");
@@ -963,6 +964,19 @@
      START UP
      ================================================================= */
 
+  // A plain-English reason for why your saved page couldn't be loaded.
+  function loadProblem() {
+    var code = loadErrorCode;
+    var base = "editing is switched off to protect your saved page. ";
+    if (code === "permission-denied") {
+      return base + "Firebase said \"permission denied\": the About page rules probably haven't been added yet. In Firebase, open Firestore > Rules, add the \"pages\" and \"aboutImages\" blocks, click Publish, wait a minute, then refresh.";
+    }
+    if (code === "unavailable" || code === "failed-precondition" || code === "deadline-exceeded") {
+      return base + "couldn't reach Firebase (" + code + "). check your connection, then refresh.";
+    }
+    return base + "couldn't load it" + (code ? " (error: " + code + ")" : "") + ". refresh and try again.";
+  }
+
   function show(list) {
     blocks = list;
     savedJson = JSON.stringify(blocks);
@@ -975,10 +989,11 @@
     store = s;
     return s.loadPage().then(function (saved) {
       show(saved === null ? starterBlocks() : cleanBlocks(saved));
-    }).catch(function () {
+    }).catch(function (err) {
       // Couldn't read your saved page. Show the starter page to visitors,
       // but switch editing off so a blank page can never overwrite your real one.
       loadFailed = true;
+      loadErrorCode = err && err.code ? String(err.code) : "";
       show(starterBlocks());
     }).then(function () {
       s.onAuth(function (user) {
@@ -988,19 +1003,7 @@
         renderCanvas();
         if (admin && loadFailed) {
           btnEdit.disabled = true;
-          say("couldn't load your saved page. ", "dirty");
-          var retry = el("button", "btn", "Try loading again");
-          retry.addEventListener("click", function() {
-            say("loading...");
-            s.loadPage().then(function (saved) {
-              loadFailed = false;
-              show(saved === null ? starterBlocks() : cleanBlocks(saved));
-              btnEdit.disabled = false;
-            }).catch(function () {
-              say("still couldn't load. are you sure you have permission?", "dirty");
-            });
-          });
-          stateEl.appendChild(retry);
+          say(loadProblem(), "dirty");
         }
       });
     });

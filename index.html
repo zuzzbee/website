@@ -9,11 +9,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>zuzz's corner of the internet</title>
-
-<!-- Browser tab icon (favicon) -->
-<link rel="icon" type="image/png" href="favicon.png">
-
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="skins.css">
 </head>
 <body>
 <div class="page">
@@ -42,37 +39,11 @@
     <!-- LEFT: EMBEDS -->
     <main class="stack">
 
-      <section class="window out" id="spotifyWindow" aria-labelledby="spotifyTitle">
-        <div class="titlebar">
-          <span aria-hidden="true">🎵</span>
-          <span class="name" id="spotifyTitle"></span>
-          <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
-        </div>
-        <div class="body">
-          <p class="embed-note" id="spotifyIntro"></p>
-          <div class="embed-frame in" id="spotifyFrame"></div>
-          <details class="help-note">
-            <summary>how do i change this?</summary>
-            <p>Open <code>config.js</code> and paste a Spotify share link next to <code>link:</code> in the <code>spotify</code> section.</p>
-          </details>
-        </div>
-      </section>
+      <!-- LimeWire-style Spotify box and MSN Messenger-style Discord box.
+           Both are built by skins.js from your settings in config.js. -->
+      <section class="skin-slot" id="spotifyWindow" aria-label="Music player"></section>
 
-      <section class="window out" id="discordWindow" aria-labelledby="discordTitle">
-        <div class="titlebar">
-          <span aria-hidden="true">💬</span>
-          <span class="name" id="discordTitle"></span>
-          <span class="btns" aria-hidden="true"><span>_</span><span>□</span><span>x</span></span>
-        </div>
-        <div class="body">
-          <p class="embed-note" id="discordIntro"></p>
-          <div class="embed-frame in" id="discordFrame"></div>
-          <details class="help-note">
-            <summary>why is this empty?</summary>
-            <p>Open <code>config.js</code> and put your server ID next to <code>serverId:</code> in the <code>discord</code> section. Also make sure <b>Server Settings → Widget → Enable Server Widget</b> is switched on in Discord.</p>
-          </details>
-        </div>
-      </section>
+      <section class="skin-slot" id="discordWindow" aria-label="Chat server"></section>
 
       <section class="window out about" id="aboutWindow" aria-labelledby="aboutTitle">
         <div class="titlebar">
@@ -122,7 +93,7 @@
   </div>
 
   <footer class="page-foot">
-    &copy; <span id="footYear"></span> <span id="footName"></span>. made with Claude and hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+    &copy; <span id="footYear"></span> <span id="footName"></span>. made with plain HTML and hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
   </footer>
 </div>
 
@@ -135,8 +106,6 @@
 
 <script src="config.js"></script>
 <script src="site.js"></script>
-<script src="guestbook-config.js"></script>
-<script src="fb.js"></script>
-<script src="counter.js"></script>
+<script src="skins.js"></script>
 </body>
 </html>

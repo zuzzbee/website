@@ -1,0 +1,309 @@
+/* =====================================================================
+   THROWBACK APP SKINS  -  MSN Messenger (Discord) and LimeWire (Spotify)
+   No need to edit. Styled like Windows XP-era programs.
+   ===================================================================== */
+
+.skin-slot { display: block; }
+
+/* ---------------------- Windows XP window frame ---------------------- */
+
+.xp {
+  padding: 0 3px 3px;
+  background: #0a50d8;
+  border: 1px solid #0831b0;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, .35);
+  font-family: Tahoma, "MS Sans Serif", Verdana, Geneva, sans-serif;
+  font-size: 12px;
+  color: #000;
+}
+.xp-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  margin: 0 -3px;
+  padding: 0 5px 0 8px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-shadow: 1px 1px #0f1089;
+  border-radius: 7px 7px 0 0;
+  background: linear-gradient(180deg, #0058ee 0%, #3593ff 4%, #288eff 6%, #127dff 8%, #036ffc 10%, #0262ee 14%, #0057e5 20%, #0054e3 24%, #0055eb 56%, #005bf5 66%, #026afe 76%, #0062ef 86%, #0052d6 92%, #0040ab 94%, #003092 100%);
+}
+.xp-name { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.xp-btns { display: flex; gap: 2px; }
+.xp-btn-sys {
+  display: grid;
+  place-items: center;
+  width: 21px; height: 21px;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  text-shadow: none;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  background: radial-gradient(circle at 90% 90%, #0054e9 0%, #2263d5 55%, #4479e4 70%, #a3bbec 90%, #fff 100%);
+}
+.xp-btn-sys.xp-close {
+  background: radial-gradient(circle at 90% 90%, #cc4600 0%, #dc6527 55%, #cd7546 70%, #ffccb2 90%, #fff 100%);
+}
+.xp-body { background: #ece9d8; }
+
+.xp-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  padding: 3px 8px;
+  background: #f3f1e6;
+  border-bottom: 1px solid #d4d0c8;
+}
+
+/* XP-style push button */
+.xp-btn {
+  display: inline-block;
+  padding: 3px 14px;
+  font: inherit;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(180deg, #fff, #ecebe5 86%, #d8d0c4);
+  border: 1px solid #003c74;
+  border-radius: 3px;
+}
+.xp-btn:visited { color: #000; }
+.xp-btn:hover { box-shadow: inset 0 0 0 2px #f8b636; }
+.xp-btn:active { background: #d6d3c6; }
+.xp-btn:focus-visible { outline: 1px dotted #000; outline-offset: 2px; }
+
+.skin-ico { display: inline-flex; flex: 0 0 auto; line-height: 0; }
+.st-online { color: #3bb53b; }
+.st-away { color: #f0a020; }
+.st-busy { color: #d62d2d; }
+
+.skin-help {
+  margin-top: 8px;
+  padding: 6px 8px;
+  font-size: 12px;
+  background: var(--note-yellow);
+  border: 1px solid #000;
+}
+.skin-help summary { cursor: pointer; font-weight: 700; }
+.skin-help code { padding: 0 3px; background: #fff; border: 1px solid var(--mid); word-break: break-all; }
+
+/* ============================ MSN MESSENGER ========================== */
+
+.msn .xp-body { background: #dbe8fa; }
+.msn .xp-menu { background: #eaf2fc; border-bottom-color: #b8cdee; }
+
+.msn-me {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: linear-gradient(180deg, #f4f9ff, #c6dbf6);
+  border-bottom: 1px solid #9db9e3;
+}
+.msn-pic {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 54px; height: 54px;
+  padding: 0;
+  color: #3bb53b;
+  cursor: pointer;
+  background: linear-gradient(180deg, #fff, #dcecff);
+  border: 3px solid #fff;
+  border-radius: 6px;
+  outline: 1px solid #7b9ccd;
+  box-shadow: 0 1px 3px rgba(0, 40, 120, .4);
+}
+.msn-pic svg { width: 38px; height: 38px; }
+.msn-pic:focus-visible { outline: 2px dotted #000; outline-offset: 2px; }
+.msn-metext { min-width: 0; }
+.msn-name { font-size: 13px; color: #0d2f6e; }
+.msn-name .st { font-size: 11px; color: #4a5b78; font-weight: 400; }
+.msn-pm { margin-top: 2px; font-style: italic; color: #4a5b78; overflow-wrap: anywhere; }
+.msn-nudge-msg { padding: 3px 10px; font-size: 11px; font-style: italic; color: #777; background: #fff; border-bottom: 1px solid #c6dbf6; }
+
+.msn-list {
+  margin: 8px 8px 0;
+  padding: 8px;
+  min-height: 150px;
+  background: #fff;
+  border: 1px solid #7b9ccd;
+  box-shadow: inset 1px 1px 2px rgba(0, 40, 120, .2);
+}
+.msn-server { margin-bottom: 6px; padding-bottom: 4px; font-size: 11px; color: #4a5b78; border-bottom: 1px dotted #b8cdee; overflow-wrap: anywhere; }
+.msn-group { margin-bottom: 4px; font-weight: 700; color: #1b4a94; }
+.msn-arrow { display: inline-block; width: 12px; }
+.msn-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 5px;
+  padding: 2px 4px 2px 14px;
+  border-radius: 2px;
+  overflow-wrap: anywhere;
+}
+.msn-contact:hover { background: #dbe9fc; }
+.msn-cname { color: #000; }
+.msn-cstat, .msn-cgame { color: #6b7686; }
+.msn-more { padding: 3px 4px 0 14px; color: #6b7686; font-style: italic; }
+.msn-empty { margin: 0; padding: 4px 14px; color: #6b7686; }
+
+.msn-signin { padding: 18px 8px; text-align: center; color: #4a5b78; }
+.msn-signin p { margin: 0 0 8px; }
+.msn-bar {
+  width: 70%;
+  height: 12px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #7b9ccd;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.msn-bar span {
+  display: block;
+  width: 35%;
+  height: 100%;
+  background: repeating-linear-gradient(90deg, #3d9bf5 0 8px, transparent 8px 10px);
+  animation: msn-slide 1.4s linear infinite;
+}
+@keyframes msn-slide { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+
+.msn-list iframe { display: block; width: 100%; border: 0; background: #fff; }
+
+.msn-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 8px 10px; }
+.msn-count { color: #4a5b78; font-size: 11px; }
+
+.msn.nudge { animation: nudge .5s linear; }
+@keyframes nudge {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-7px, 3px); }
+  20% { transform: translate(7px, -3px); }
+  30% { transform: translate(-6px, -2px); }
+  40% { transform: translate(6px, 2px); }
+  50% { transform: translate(-5px, 3px); }
+  60% { transform: translate(5px, -2px); }
+  70% { transform: translate(-3px, 1px); }
+  80% { transform: translate(3px, -1px); }
+  90% { transform: translate(-1px, 1px); }
+}
+
+/* ============================== LIMEWIRE ============================== */
+
+.lw .xp-body { padding-bottom: 0; }
+
+.lw-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  color: #fff;
+  background: linear-gradient(180deg, #b5ec54, #6fb511 55%, #5a9d06);
+  border-bottom: 1px solid #3f7a0a;
+  text-shadow: 1px 1px 1px rgba(0, 60, 0, .6);
+}
+.lw-brand .skin-ico svg { width: 26px; height: 26px; }
+.lw-word { font-family: Impact, "Arial Black", Tahoma, sans-serif; font-size: 22px; font-style: italic; letter-spacing: .5px; }
+.lw-tag { margin-left: auto; font-size: 11px; font-weight: 700; text-align: right; }
+
+.lw-tabs { display: flex; flex-wrap: wrap; gap: 2px; padding: 8px 8px 0; }
+.lw-tab {
+  padding: 4px 14px;
+  font: inherit;
+  color: #000;
+  cursor: pointer;
+  background: #f4f3ee;
+  border: 1px solid #919b9c;
+  border-bottom: 0;
+  border-radius: 3px 3px 0 0;
+}
+.lw-tab[aria-selected="true"] {
+  position: relative;
+  top: 1px;
+  padding-top: 5px;
+  font-weight: 700;
+  background: #fff;
+  border-top: 3px solid #7cc01f;
+}
+.lw-tab:focus-visible { outline: 1px dotted #000; outline-offset: -4px; }
+
+.lw-panel {
+  margin: 0 8px;
+  padding: 10px;
+  min-height: 190px;
+  background: #fff;
+  border: 1px solid #919b9c;
+}
+.lw-q { margin: 0 0 8px; overflow-wrap: anywhere; }
+.lw-q b { color: #3f7a0a; }
+
+.lw-table { width: 100%; border-collapse: collapse; }
+.lw-table th {
+  padding: 3px 6px;
+  text-align: left;
+  font-weight: 400;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #fff, #e1ddd0);
+  border: 1px solid #aca899;
+}
+.lw-table td { padding: 5px 6px; vertical-align: middle; border-bottom: 1px solid #eee; }
+.lw-table tbody tr:hover td { background: #e8f1ff; }
+.lw-table th, .lw-table td { overflow-wrap: normal; word-break: normal; }
+.lw-table .lw-name { font-weight: 700; overflow-wrap: anywhere; }
+.lw-table .xp-btn { white-space: nowrap; }
+.lw-fast { font-weight: 700; color: #2c8a00; }
+.lw-stars { color: #e0a800; white-space: nowrap; letter-spacing: 1px; }
+.lw-hint { margin: 8px 0 0; color: #666; font-size: 11px; }
+.lw-empty { margin: 0; color: #666; }
+
+.lw-prog {
+  position: relative;
+  width: 100%;
+  min-width: 90px;
+  height: 14px;
+  padding: 1px;
+  background: #fff;
+  border: 1px solid #686868;
+  border-radius: 3px;
+}
+.lw-prog-fill {
+  width: 0;
+  height: 100%;
+  background: repeating-linear-gradient(90deg, #2fc10c 0 7px, transparent 7px 9px);
+}
+
+.lw-crumb { margin: 0 0 8px; color: #666; font-size: 11px; }
+.lw-library iframe { display: block; width: 100%; border: 0; border-radius: 12px; }
+
+.lw-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  margin-top: 8px;
+  padding: 3px 8px;
+  font-size: 11px;
+  color: #000;
+  background: #ece9d8;
+  border-top: 1px solid #aca899;
+}
+.lw-bars { display: inline-flex; align-items: flex-end; gap: 2px; height: 12px; }
+.lw-bars i { display: block; width: 4px; background: #2fc10c; border: 1px solid #1d8a05; }
+.lw-bars i:nth-child(1) { height: 4px; }
+.lw-bars i:nth-child(2) { height: 7px; }
+.lw-bars i:nth-child(3) { height: 10px; }
+.lw-bars i:nth-child(4) { height: 12px; }
+.lw-status .grow { flex: 1; }
+
+@media (max-width: 520px) {
+  .lw-table .col-size, .lw-table .col-quality, .lw-table .col-type { display: none; }
+  .lw-tab { padding: 4px 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .msn-bar span { animation: none; transform: none; width: 100%; }
+  .msn.nudge { animation: none; }
+}

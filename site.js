@@ -38,50 +38,6 @@
     if (S.scrollingText) { setText("ticker", S.scrollingText); } else { hide("tickerBox"); }
   }
 
-  /* ---------- spotify (home page only) ---------- */
-  if ($("spotifyWindow")) {
-    var sp = S.spotify || {};
-    if (sp.show === false || !sp.link) {
-      hide("spotifyWindow");
-    } else {
-      setText("spotifyTitle", sp.windowTitle);
-      setText("spotifyIntro", sp.intro);
-      var m = String(sp.link).match(
-        /open\.spotify\.com\/(?:intl-[a-z]+\/)?(playlist|album|track|artist|episode|show)\/([A-Za-z0-9]+)/
-      );
-      var spFrame = $("spotifyFrame");
-      if (m) {
-        var f = make("iframe");
-        f.title = "Spotify player";
-        f.src = "https://open.spotify.com/embed/" + m[1] + "/" + m[2] + "?theme=0";
-        f.height = sp.height || 352;
-        f.loading = "lazy";
-        f.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-        spFrame.appendChild(f);
-      } else {
-        spFrame.appendChild(make("p", "oops", "That doesn't look like a Spotify link. In Spotify, use Share > Copy link and paste it into config.js."));
-      }
-    }
-  }
-
-  /* ---------- discord (home page only) ---------- */
-  if ($("discordWindow")) {
-    var dc = S.discord || {};
-    if (dc.show === false || !dc.serverId) {
-      hide("discordWindow");
-    } else {
-      setText("discordTitle", dc.windowTitle);
-      setText("discordIntro", dc.intro);
-      var d = make("iframe");
-      d.title = "Discord server widget";
-      d.src = "https://discord.com/widget?id=" + encodeURIComponent(dc.serverId) + "&theme=dark";
-      d.height = dc.height || 400;
-      d.loading = "lazy";
-      d.setAttribute("sandbox", "allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts");
-      $("discordFrame").appendChild(d);
-    }
-  }
-
   /* ---------- help notes ---------- */
   if (S.showHelpNotes === false) {
     var notes = document.querySelectorAll(".help-note");
