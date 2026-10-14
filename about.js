@@ -988,7 +988,19 @@
         renderCanvas();
         if (admin && loadFailed) {
           btnEdit.disabled = true;
-          say("couldn't load your saved page, so editing is switched off to protect it. refresh and try again.", "dirty");
+          say("couldn't load your saved page. ", "dirty");
+          var retry = el("button", "btn", "Try loading again");
+          retry.addEventListener("click", function() {
+            say("loading...");
+            s.loadPage().then(function (saved) {
+              loadFailed = false;
+              show(saved === null ? starterBlocks() : cleanBlocks(saved));
+              btnEdit.disabled = false;
+            }).catch(function () {
+              say("still couldn't load. are you sure you have permission?", "dirty");
+            });
+          });
+          stateEl.appendChild(retry);
         }
       });
     });
