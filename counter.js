@@ -1,8 +1,14 @@
+/* =====================================================================
+   VISITOR COUNTER
+   ===================================================================== */
+
 (function () {
   var FB = window.ZuzzFirebase;
   var S = window.SITE || {};
   var KEY = "zuzz-visitor-count";
-
+  // var RESET_KEY = "zuzz-counter-reset-v2"; // removed: use daily reset instead
+  // Removed unused daily reset key
+  // var RESET_DATE_KEY = "zuzz-counter-reset-date";
   function $(id) { return document.getElementById(id); }
   function make(tag, className, text) {
     var el = document.createElement(tag);
@@ -21,17 +27,24 @@
     digits.split("").forEach(function (ch) {
       counter.appendChild(make("span", "", ch));
     });
+    console.log("Visitor counter rendered value: " + digits);
   }
 
   function getLocalCount() {
-    var count = parseInt(localStorage.getItem(KEY), 10) || parseInt(S.visitorCount, 10) || 0;
-    var sessionKey = "zuzz-visited";
-    if (!sessionStorage.getItem(sessionKey)) {
-      count++;
-      localStorage.setItem(KEY, count);
-      sessionStorage.setItem(sessionKey, "1");
-    }
+    var count = parseInt(localStorage.getItem(KEY), 10) || 0;
+    count++; // always increment on each page load
+    localStorage.setItem(KEY, count);
+    console.log("Local visitor count (updated): " + count);
     return count;
+  }
+
+  // Reset only on first load after new deployment
+  var DEPLOYMENT_TIMESTAMP = "2026-10-14T15:58:32Z";
+  var storedDeploy = localStorage.getItem('deploymentTimestamp');
+  if (storedDeploy !== DEPLOYMENT_TIMESTAMP) {
+    localStorage.setItem(KEY, 0);
+    localStorage.setItem('deploymentTimestamp', DEPLOYMENT_TIMESTAMP);
+    console.log("Visitor counter reset for deployment at " + DEPLOYMENT_TIMESTAMP);
   }
 
   if (FB && FB.configured) {
@@ -39,14 +52,21 @@
       var fs = x.fs;
       var docRef = fs.doc(x.db, "counters", "site");
 
-      // Use a transaction or arrayUnion isn't right here, we need increment.
-      // Firebase has a field value increment.
+      // One-time Firebase reset
+      if (!localStorage.getItem("zuzz-fb-reset")) {
+        fs.setDoc(docRef, { count: 0 });
+        localStorage.setItem("zuzz-fb-reset", "true");
+        console.log("Firebase visitor counter reset to 0 on first load");
+      }
+
       var sessionKey = "zuzz-visited-fire";
       var promise;
 
+      // Increment remotely on every page load
       if (!sessionStorage.getItem(sessionKey)) {
         promise = fs.setDoc(docRef, { count: fs.increment(1) }, { merge: true });
         sessionStorage.setItem(sessionKey, "1");
+        console.log("Remote visitor counter incremented");
       } else {
         promise = Promise.resolve();
       }
@@ -54,16 +74,13 @@
       promise.then(function () {
         return fs.getDoc(docRef);
       }).then(function (snap) {
-        if (snap.exists()) {
-          render(snap.data().count);
-        } else {
-          render(getLocalCount());
-        }
+        render(snap.exists() ? snap.data().count : 0);
       }).catch(function (err) {
-        console.error("Counter error:", err);
+        console.error("Error fetching remote visitor count: ", err);
         render(getLocalCount());
       });
-    }).catch(function () {
+    }).catch(function (err) {
+      console.error("Firebase load failed: ", err);
       render(getLocalCount());
     });
   } else {
